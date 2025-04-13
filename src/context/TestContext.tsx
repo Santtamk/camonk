@@ -7,12 +7,8 @@ interface TestContextType {
   currentQuestionIndex: number;
   setCurrentQuestionIndex: (index: number) => void;
   testStarted: boolean;
-  setTestStarted: boolean;
+  setTestStarted: (value: boolean) => void;
   startTest: () => void;
-  // answers: Answer[];
-  // setAnswers: (answers: Answer[]) => void;
-  // score: number;
-  // setScore: (score: number) => void;
 }
 
 const TestContext = createContext<TestContextType | undefined>(undefined);
@@ -22,8 +18,6 @@ export const TestProvider = ({ children }: { children: ReactNode }) => {
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0); //track questions
   const [testStarted, setTestStarted] = useState<boolean>(false); //track test start
-
-  //   const [timer, setTimer] = useState(30); // 30seconds timer
 
   const startTest = async () => {
     try {
@@ -38,6 +32,8 @@ export const TestProvider = ({ children }: { children: ReactNode }) => {
       );
     }
   };
+
+  // const timerChecker = ()
 
   return (
     <TestContext.Provider
