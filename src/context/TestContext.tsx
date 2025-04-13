@@ -21,7 +21,9 @@ export const TestProvider = ({ children }: { children: ReactNode }) => {
 
   const startTest = async () => {
     try {
-      const questionData = await fetch("http://localhost:3000/questions");
+      const questionData = await fetch(
+        "https://run.mocky.io/v3/36ec56e5-312d-449b-8041-960df801856a"
+      );
       const json = await questionData.json();
       setQuestions(json);
       setTestStarted(true);
