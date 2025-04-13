@@ -1,10 +1,11 @@
+import { TestProvider } from "./context/TestContext";
 import TestHome from "./pages/test-home";
 
 function App() {
   return (
-    <div className="text-4xl">
+    <TestProvider>
       <TestHome />
-    </div>
+    </TestProvider>
   );
 }
 
